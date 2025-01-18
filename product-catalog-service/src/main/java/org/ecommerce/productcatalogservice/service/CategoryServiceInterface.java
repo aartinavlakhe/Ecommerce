@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface CategoryServiceInterface {
     public Category getCategoryById(Long id);
-    public List<Category> getAllCategories();
+    public List<Category> getAllCategory();
     public Category createCategory(Category category);
 }

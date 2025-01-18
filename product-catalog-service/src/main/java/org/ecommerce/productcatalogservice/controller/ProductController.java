@@ -62,4 +62,28 @@ public class ProductController {
         return ResponseEntity.ok(productResponse);
     }
 
+    /**
+     * Get products by category.
+     */
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<List<ProductResponseDto>> getProductsByCategory(@PathVariable Long categoryId) {
+        List<ProductResponseDto> productResponse = productService.getProductsByCategory(categoryId)
+                                                    .stream()
+                                                    .map(ProductMapper::toProductResponseDto)
+                                                    .collect(Collectors.toList());
+        return ResponseEntity.ok(productResponse);
+    }
+
+    /**
+     * Search products by keyword.
+     */
+    @GetMapping("/search")
+    public ResponseEntity<List<ProductResponseDto>> searchProducts(@RequestParam("productName") String keyword) {
+        List<ProductResponseDto> productResponse = productService.searchProducts(keyword)
+                                                    .stream()
+                                                    .map(ProductMapper::toProductResponseDto)
+                                                    .collect(Collectors.toList());
+        return ResponseEntity.ok(productResponse);
+    }
+
 }

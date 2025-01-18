@@ -24,7 +24,7 @@ public class CategoryServiceImp implements CategoryServiceInterface{
     }
 
     @Override
-    public List<Category> getAllCategories() {
+    public List<Category> getAllCategory() {
         List<Category> categories = categoryRepository.findAll();
         return categories;
     }

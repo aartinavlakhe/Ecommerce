@@ -62,6 +62,16 @@ public class FakeStoreProductServiceImp implements ProductServiceInterface {
         return null;
     }
 
+    @Override
+    public List<Product> getProductsByCategory(Long categoryId) {
+        return List.of();
+    }
+
+    @Override
+    public List<Product> searchProducts(String keyword) {
+        return List.of();
+    }
+
     private Product convertDtoToProduct(FakeStoreProductDto dto) {
         if (dto == null) {
             return null;

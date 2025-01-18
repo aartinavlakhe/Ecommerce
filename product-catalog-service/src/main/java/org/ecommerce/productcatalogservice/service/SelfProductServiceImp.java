@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("selfProductServiceImp")
+@Service("selfProductService")
 @Primary
 public class SelfProductServiceImp implements ProductServiceInterface {
 
@@ -78,5 +78,21 @@ public class SelfProductServiceImp implements ProductServiceInterface {
 
         productRepository.deleteById(id);
         return product;
+    }
+
+    /**
+     * Fetch products by category ID.
+     */
+    public List<Product> getProductsByCategory(Long categoryId) {
+        List<Product> products = productRepository.findByproductCategory_Id(categoryId);
+        return products;
+    }
+
+    /**
+     * Search products by keyword.
+     */
+    public List<Product> searchProducts(String keyword) {
+        List<Product> products = productRepository.searchProductsByKeyword(keyword);
+        return products;
     }
 }
