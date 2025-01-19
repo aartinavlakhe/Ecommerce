@@ -85,5 +85,4 @@ public class ProductController {
                                                     .collect(Collectors.toList());
         return ResponseEntity.ok(productResponse);
     }
-
 }
